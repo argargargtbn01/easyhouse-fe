@@ -7,7 +7,7 @@ import {
   Typography,
   Link,
   Box,
-  Grid,
+  Stack
 } from "@mui/material";
 import { useState } from "react";
 import { auth } from "../firebase/firebase-client";
@@ -35,36 +35,39 @@ export default function Login() {
   };
 
   return (
-    <Grid container component="main" sx={{ height: "100vh" }}>
+    <Stack direction="row" sx={{ height: "100vh" }}>
       {/* Left Side Image */}
-      <Grid
-        item
-        xs={false}
-        sm={4}
-        md={7}
+      <Box
         sx={{
-          backgroundImage: "url(/image.png)", // Your image file
+          flex: { xs: 0, sm: 1, md: 1.4 },
+          display: { xs: 'none', sm: 'block' },
+          backgroundImage: "url(/images/img-login-page.jpg)", // Your image file
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       />
-
       {/* Right Side - Login Form */}
-      <Grid item xs={12} sm={8} md={5}>
+      <Box
+        sx={{
+          flex: { xs: 1, sm: 1, md: 1 },
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          p: 4,
+        }}
+      >
         <Box
           sx={{
-            my: 8,
-            mx: 4,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            maxWidth: 400,
+            width: '100%',
           }}
         >
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" align="center" gutterBottom>
             Login
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 1 }} onSubmit={handleSubmit}>
+          <Box component="form" noValidate onSubmit={handleSubmit}>
             <TextField
               margin="normal"
               required
@@ -101,21 +104,17 @@ export default function Login() {
             >
               Login
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="/register" variant="body2">
-                  {"Don't have account? Register"}
-                </Link>
-              </Grid>
-            </Grid>
+            <Stack direction="row" justifyContent="space-between" alignItems="center">
+              <Link href="#" variant="body2">
+                Forgot password?
+              </Link>
+              <Link href="/register" variant="body2">
+                {"Don't have account? Register"}
+              </Link>
+            </Stack>
           </Box>
         </Box>
-      </Grid>
-    </Grid>
+      </Box>
+    </Stack>
   );
 }
