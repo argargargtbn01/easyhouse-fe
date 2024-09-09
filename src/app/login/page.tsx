@@ -11,24 +11,29 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { auth } from "../firebase/firebase-client";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, UserCredential } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const userCredential = await signInWithEmailAndPassword(
+      const userCredential : UserCredential = await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
       const user = userCredential.user;
-      alert(user)
       console.log('Logged in user:', user);
+      // const token = await user.getIdToken();
+      // localStorage.setItem('authToken', token);
+          // Redirect to the dashboard or home page
+      router.push('/');
     } catch (error) {
       setError(error.message);
     }
@@ -41,7 +46,7 @@ export default function Login() {
         sx={{
           flex: { xs: 0, sm: 1, md: 1.4 },
           display: { xs: 'none', sm: 'block' },
-          backgroundImage: "url(/images/img-login-page.jpg)", // Your image file
+          backgroundImage: "url(/images/img-login-page.jpg)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
