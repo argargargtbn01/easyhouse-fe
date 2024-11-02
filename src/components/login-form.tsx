@@ -91,7 +91,7 @@ export default function Component() {
             <div className="grid grid-cols-3 gap-4">
               <Button variant="outline" className="w-full">
                 <Image
-                  src="/placeholder.svg?height=24&width=24"
+                  src="/images/facebook-icon.jpg"
                   alt="Facebook"
                   width={24}
                   height={24}
@@ -100,7 +100,7 @@ export default function Component() {
               </Button>
               <Button variant="outline" className="w-full">
                 <Image
-                  src="/placeholder.svg?height=24&width=24"
+                  src="/images/google-icon.jpg"
                   alt="Google"
                   width={24}
                   height={24}
@@ -114,7 +114,7 @@ export default function Component() {
 
             <div className="text-center text-sm text-gray-600">
               Bạn chưa có tài khoản?{" "}
-              <Link href="/signup" className="text-[#00A5AF] hover:underline">
+              <Link href="/register" className="text-[#00A5AF] hover:underline">
                 Đăng ký
               </Link>
             </div>

@@ -1,60 +1,74 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
+import { Bell, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ChevronDown } from "lucide-react"
+import { Input } from "@/components/ui/input"
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export function Header() {
   return (
     <header className="w-full bg-white border-b">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center">
+        <div className="flex items-center justify-between h-16 gap-4">
+          <Link href="/" className="flex-shrink-0">
             <span className="text-2xl font-bold text-[#FFB800]">iz<span className="text-[#00A5AF]">house</span></span>
           </Link>
           
+          <div className="flex-1 max-w-xl relative">
+            <Input
+              type="search"
+              placeholder="Tìm kiếm..."
+              className="w-full pl-10"
+            />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+          </div>
+
           <div className="flex items-center gap-4">
-            <Select>
-              <SelectTrigger className="w-[160px]">
-                <SelectValue placeholder="Khu vực/Dự án" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="hanoi">Hà Nội</SelectItem>
-                <SelectItem value="hochiminh">Hồ Chí Minh</SelectItem>
-                <SelectItem value="danang">Đà Nẵng</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select>
-              <SelectTrigger className="w-[160px]">
-                <SelectValue placeholder="Mức giá" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="0-2">0 - 2 Triệu</SelectItem>
-                <SelectItem value="2-5">2 - 5 Triệu</SelectItem>
-                <SelectItem value="5-10">5 - 10 Triệu</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select>
-              <SelectTrigger className="w-[160px]">
-                <SelectValue placeholder="Diện tích" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="0-30">0 - 30m²</SelectItem>
-                <SelectItem value="30-50">30 - 50m²</SelectItem>
-                <SelectItem value="50-100">50 - 100m²</SelectItem>
-              </SelectContent>
-            </Select>
-
             <Button variant="default" className="bg-[#00A5AF] text-white hover:bg-[#008C95]">
-              Đăng ký / Đăng nhập
+              Kênh cho thuê
             </Button>
+            
+            <div className="flex items-center gap-3">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="relative">
+                    <Bell className="h-5 w-5" />
+                    <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 text-[10px] text-white flex items-center justify-center">
+                      2
+                    </span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem>Thông báo mới</DropdownMenuItem>
+                  <DropdownMenuItem>Xem tất cả</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="rounded-full">
+                    <Image
+                      src="/images/avatar.jpg"
+                      alt="Avatar"
+                      width={32}
+                      height={32}
+                      className="rounded-full"
+                    />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem>Tài khoản</DropdownMenuItem>
+                  <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
       </div>
