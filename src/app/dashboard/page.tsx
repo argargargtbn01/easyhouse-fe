@@ -7,7 +7,7 @@ import { FilterBar } from "@/components/filter-bar";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header isAuthenticated={true}/>
       <FilterBar />
       <main className="flex-1 bg-gray-50">
         <PropertyGrid />
