@@ -1,5 +1,6 @@
 "use client"
 
+import { RotateCw } from "lucide-react"
 import {
   Select,
   SelectContent,
@@ -7,14 +8,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Button } from "@/components/ui/button"
 
 export function FilterBar() {
   return (
-    <div className="w-full bg-[#00A5AF] py-3">
+    <div className="w-full bg-[#00A5AF] py-4">
       <div className="container mx-auto px-4">
-        <div className="flex items-center gap-3 text-sm">
+        <div className="flex items-center gap-4">
           <Select>
-            <SelectTrigger className="w-[140px] bg-white">
+            <SelectTrigger className="w-[160px] bg-white rounded-md border-0 shadow-sm">
               <SelectValue placeholder="Nhà/Phòng trọ" />
             </SelectTrigger>
             <SelectContent>
@@ -25,7 +27,7 @@ export function FilterBar() {
           </Select>
 
           <Select>
-            <SelectTrigger className="w-[140px] bg-white">
+            <SelectTrigger className="w-[160px] bg-white rounded-md border-0 shadow-sm">
               <SelectValue placeholder="Hà Nội" />
             </SelectTrigger>
             <SelectContent>
@@ -36,7 +38,7 @@ export function FilterBar() {
           </Select>
 
           <Select>
-            <SelectTrigger className="w-[140px] bg-white">
+            <SelectTrigger className="w-[160px] bg-white rounded-md border-0 shadow-sm">
               <SelectValue placeholder="Quận Cầu Giấy" />
             </SelectTrigger>
             <SelectContent>
@@ -47,7 +49,7 @@ export function FilterBar() {
           </Select>
 
           <Select>
-            <SelectTrigger className="w-[140px] bg-white">
+            <SelectTrigger className="w-[160px] bg-white rounded-md border-0 shadow-sm">
               <SelectValue placeholder="Phường Trung Hòa" />
             </SelectTrigger>
             <SelectContent>
@@ -58,7 +60,7 @@ export function FilterBar() {
           </Select>
 
           <Select>
-            <SelectTrigger className="w-[140px] bg-white">
+            <SelectTrigger className="w-[160px] bg-white rounded-md border-0 shadow-sm">
               <SelectValue placeholder="Từ 1-2 triệu đồng" />
             </SelectTrigger>
             <SelectContent>
@@ -69,7 +71,7 @@ export function FilterBar() {
           </Select>
 
           <Select>
-            <SelectTrigger className="w-[140px] bg-white">
+            <SelectTrigger className="w-[160px] bg-white rounded-md border-0 shadow-sm">
               <SelectValue placeholder="Từ 20 - 30m²" />
             </SelectTrigger>
             <SelectContent>
@@ -78,6 +80,14 @@ export function FilterBar() {
               <SelectItem value="40-50">40-50m²</SelectItem>
             </SelectContent>
           </Select>
+
+          <Button 
+            variant="ghost" 
+            size="icon"
+            className="h-10 w-10 bg-white hover:bg-white/90 rounded-md shadow-sm"
+          >
+            <RotateCw className="h-4 w-4 text-gray-600" />
+          </Button>
         </div>
       </div>
     </div>

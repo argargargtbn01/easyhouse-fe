@@ -9,7 +9,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Giới thiệu</h3>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>Về IZI</li>
+              <li>Về Easyhouse</li>
               <li>Quy chế hoạt động</li>
               <li>Chính sách bảo mật</li>
             </ul>
@@ -24,10 +24,10 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Liên hệ</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Email: support@izihouse@gmail.com
+              Email: argargargtbn01@gmail.com
             </p>
             <div className="space-y-2">
-              <h4 className="font-medium">Tải về ứng dụng IZIhouse</h4>
+              <h4 className="font-medium">Tải về ứng dụng Easyhouse (đùa thôi chưa có đâu)</h4>
               <div className="flex gap-4">
                 <Image
                   src="/placeholder.svg?height=40&width=120"
@@ -46,10 +46,9 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t text-sm text-gray-600 text-center">
-          <p>© 2024 IZIHOUSE</p>
+          <p>Quang</p>
           <p>
-            Địa chỉ: Lô E2a-7, Đường D1, Khu Công nghệ cao, P.Long Thạnh Mỹ,
-            Tp.Thủ Đức, TP.HCM
+            Địa chỉ: Ngọc Lâm, Long Biên, Hà Nội
           </p>
         </div>
       </div>
