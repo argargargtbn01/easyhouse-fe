@@ -11,12 +11,27 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useRouter } from "next/navigation";
 
 interface HeaderProps {
   isAuthenticated?: boolean;
 }
 
 export function Header({ isAuthenticated = true }: HeaderProps) {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      // Xóa token khỏi localStorage
+      localStorage.removeItem('access_token');
+
+      // Chuyển hướng đến trang đăng nhập
+      router.push('/login');
+    } catch (error) {
+      console.error('Logout failed', error);
+    }
+  };
+
   return (
     <header className="w-full bg-white border-b">
       <div className="container mx-auto px-4">
@@ -80,7 +95,7 @@ export function Header({ isAuthenticated = true }: HeaderProps) {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     <DropdownMenuItem>Tài khoản</DropdownMenuItem>
-                    <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleLogout}>Đăng xuất</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
