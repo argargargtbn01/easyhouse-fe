@@ -22,7 +22,7 @@ export default function Component() {
     e.preventDefault()
     setError('')
     try {
-      const response = await axios.post('http://localhost:3000/auth/login', {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`, {
         email,
         password,
       })

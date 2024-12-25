@@ -46,7 +46,7 @@ export default function Component() {
     }
 
     try {
-      await axios.post('http://localhost:3000/auth/register', {
+      await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/register`, {
         email: formData.email,
         password: formData.password,
       })
